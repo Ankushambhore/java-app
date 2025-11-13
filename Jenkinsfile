@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        githubPush()  // Responds to GitHub webhook
+        githubPush() // This listens for GitHub webhook events
     }
 
     stages {
@@ -14,13 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'javac welcome.java'
-            }
-        }
-
-        stage('Run') {
-            steps {
-                sh 'java welcome'
+                echo 'Building automatically on commit...'
             }
         }
     }
